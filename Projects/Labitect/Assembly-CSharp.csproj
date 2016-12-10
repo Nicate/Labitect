@@ -46,6 +46,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Objects\Patient\Scripts\Patient.cs" />
+     <Compile Include="Assets\Utilities\RenameTiles\RenameTiles.cs" />
+     <Compile Include="Assets\Utilities\RenameWalls\RenameWalls.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Programs/Development/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

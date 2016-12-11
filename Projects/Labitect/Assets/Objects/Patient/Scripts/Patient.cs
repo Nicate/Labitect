@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 
 public class Patient : MonoBehaviour {
-	public GameObject[] heads;
-
-	public GameObject[] straightjackets;
-	public GameObject[] bodiesWithoutPockets;
-	public GameObject[] bodiesWithPockets;
+	/// <summary>
+	/// Pocket 0 is what they have in their hands.
+	/// </summary>
+	public int numberOfPockets;
 
 
 	public void Awake() {
@@ -15,9 +14,6 @@ public class Patient : MonoBehaviour {
 	public void Start() {
 		var bla = GetComponent<NavMeshAgent>();
 		bla.destination = Vector3.zero;
-
-		GameObject head = Instantiate(heads[0], transform, false) as GameObject;
-		GameObject body = Instantiate(bodiesWithoutPockets[0], transform, false) as GameObject;
 	}
 
 	public void Update() {

@@ -45,6 +45,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Objects\Patient\Scripts\Appearance.cs" />
+     <Compile Include="Assets\Objects\Patient\Scripts\Identity.cs" />
      <Compile Include="Assets\Objects\Patient\Scripts\Patient.cs" />
      <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
      <Compile Include="Assets\Scripts\Inventory\Item.cs" />

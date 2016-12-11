@@ -6,10 +6,39 @@ ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: BezierCurve
+    100004: Body
+    100006: Circle
+    100008: Head
+    100010: Plane
+    100012: Straightjacket
     400000: //RootNode
+    400002: BezierCurve
+    400004: Body
+    400006: Circle
+    400008: Head
+    400010: Plane
+    400012: Straightjacket
     2300000: //RootNode
+    2300002: BezierCurve
+    2300004: Body
+    2300006: Circle
+    2300008: Head
+    2300010: Plane
+    2300012: Straightjacket
     3300000: //RootNode
+    3300002: BezierCurve
+    3300004: Body
+    3300006: Circle
+    3300008: Head
+    3300010: Plane
+    3300012: Straightjacket
     4300000: Straightjacket
+    4300002: Body
+    4300004: Head
+    4300006: BezierCurve
+    4300008: Plane
+    4300010: Circle
   materials:
     importMaterials: 0
     materialName: 0

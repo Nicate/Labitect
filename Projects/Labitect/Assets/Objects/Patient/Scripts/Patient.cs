@@ -17,7 +17,7 @@ public class Patient : MonoBehaviour {
 		bla.destination = Vector3.zero;
 
 		GameObject head = Instantiate(heads[0], transform, false) as GameObject;
-		GameObject body = Instantiate(straightjackets[0], transform, false) as GameObject;
+		GameObject body = Instantiate(bodiesWithoutPockets[0], transform, false) as GameObject;
 	}
 
 	public void Update() {

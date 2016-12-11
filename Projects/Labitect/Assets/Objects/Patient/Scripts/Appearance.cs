@@ -8,7 +8,7 @@ public class Appearance : MonoBehaviour {
 	public GameObject[] bodiesWithPockets;
 
 
-	void Start() {
+	public void Start() {
 		if(heads.Length > 0) {
 			Instantiate(heads[Random.Range(0, heads.Length)], transform, false);
 		}

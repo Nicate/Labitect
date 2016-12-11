@@ -4,7 +4,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour {
 	public List<GameObject> inventory;
 
-	void Start() {
+	public void Start() {
 		inventory = new List<GameObject>();
 	}
 }

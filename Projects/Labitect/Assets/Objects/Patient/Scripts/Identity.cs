@@ -6,7 +6,7 @@ public class Identity : MonoBehaviour {
 	public string patientName;
 
 
-	void Start() {
+	public void Start() {
 		if(patientNames.Length > 0) {
 			patientName = patientNames[Random.Range(0, patientNames.Length)];
 		}

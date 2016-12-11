@@ -4,7 +4,12 @@ using UnityEngine;
 public class Inventory : MonoBehaviour {
 	public List<GameObject> inventory;
 
+	public int maximumSize;
+
+
 	public void Start() {
-		inventory = new List<GameObject>();
+		if(inventory.Count > maximumSize) {
+			inventory.RemoveRange(maximumSize, inventory.Count - maximumSize);
+		}
 	}
 }

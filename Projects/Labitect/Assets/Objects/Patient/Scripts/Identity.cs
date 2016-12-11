@@ -2,7 +2,8 @@
 
 public class Identity : MonoBehaviour {
 	public string[] patientNames;
-
+	
+	[HideInInspector]
 	public string patientName;
 
 

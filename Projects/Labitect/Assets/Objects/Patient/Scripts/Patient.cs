@@ -4,6 +4,7 @@ public class Patient : MonoBehaviour {
 	/// <summary>
 	/// Pocket 0 is what they have in their hands.
 	/// </summary>
+	[HideInInspector]
 	public int numberOfPockets;
 
 

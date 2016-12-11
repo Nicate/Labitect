@@ -12,11 +12,15 @@ public class Patient : MonoBehaviour {
 	}
 
 	public void Start() {
-		var bla = GetComponent<NavMeshAgent>();
-		bla.destination = Vector3.zero;
+
 	}
 
 	public void Update() {
 		
+	}
+
+
+	public void move(Vector3 position) {
+		GetComponent<NavMeshAgent>().destination = position;
 	}
 }

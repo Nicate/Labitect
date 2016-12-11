@@ -45,11 +45,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Objects\Entrance\Scripts\Entrance.cs" />
      <Compile Include="Assets\Objects\Patient\Scripts\Appearance.cs" />
      <Compile Include="Assets\Objects\Patient\Scripts\Identity.cs" />
      <Compile Include="Assets\Objects\Patient\Scripts\Patient.cs" />
      <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
      <Compile Include="Assets\Scripts\Inventory\Item.cs" />
+     <Compile Include="Assets\Scripts\UserInterface\Log.cs" />
+     <Compile Include="Assets\Scripts\UserInterface\UserInterface.cs" />
      <Compile Include="Assets\Utilities\RenameTiles\RenameTiles.cs" />
      <Compile Include="Assets\Utilities\RenameWalls\RenameWalls.cs" />
  <Reference Include="UnityEngine.UI">

@@ -54,20 +54,22 @@ public class Design : MonoBehaviour {
 	public void left() {
 		RectTransform rectTransform = GetComponent<RectTransform>();
 
-		float x = rectTransform.position.x - step;
+		float x = rectTransform.localPosition.x + step;
 
-		if(x >= 0.0f) {
-			rectTransform.position = new Vector3(x, 0.0f, 0.0f);
+		if(x <= 0.0f) {
+			rectTransform.localPosition = new Vector3(x, 0.0f, 0.0f);
 		}
 	}
 
 	public void right() {
 		RectTransform rectTransform = GetComponent<RectTransform>();
 
-		float x = rectTransform.position.x + step;
+		float x = rectTransform.localPosition.x - step;
 
-		if(x + rectTransform.sizeDelta.x <= GetComponentInParent<RectTransform>().sizeDelta.x) {
-			rectTransform.position = new Vector3(x, 0.0f, 0.0f);
+		Debug.Log(transform.parent.GetComponent<RectTransform>().rect.width);
+
+		if(x + rectTransform.rect.width >= transform.parent.GetComponent<RectTransform>().rect.width) {
+			rectTransform.localPosition = new Vector3(x, 0.0f, 0.0f);
 		}
 	}
 }

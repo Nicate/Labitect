@@ -104,13 +104,12 @@ public class Patient : MonoBehaviour {
 		Vector3 bestSamplePosition = transform.position;
 
 		for(int count = 0; count < 9; count++) {
-			float angle = count * 360.0f / 8.0f;//Random.Range(-180.0f, 180.0f);
-
-			// Adjust the speed for the rate the coroutine runs at.
+			float angle = count * 360.0f / 8.0f;
+			
 			Vector3 samplePosition = transform.position + Quaternion.AngleAxis(angle, Vector3.up) * Vector3.forward;
 
 			// Hackity.
-			if(count == 9) {
+			if(count == 8) {
 				samplePosition = transform.position;
 			}
 

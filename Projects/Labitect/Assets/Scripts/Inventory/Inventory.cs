@@ -17,4 +17,9 @@ public class Inventory : MonoBehaviour {
 			inventory.RemoveRange(size, inventory.Count - size);
 		}
 	}
+
+
+	public bool hasSpace() {
+		return inventory.Count < size;
+	}
 }

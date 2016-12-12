@@ -11,7 +11,7 @@ public class Inventory : MonoBehaviour {
 	public float bed;
 	public float toilet;
 	public float storage;
-	public float light;
+	public float lamp;
 
 	public int size;
 

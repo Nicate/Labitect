@@ -9,7 +9,8 @@ public class Design : MonoBehaviour {
 
 	public GameObject icon;
 
-	public GameObject parent;
+	public GameObject inventoriesParent;
+	public GameObject itemsParent;
 
 	public float space;
 	public float step;
@@ -119,7 +120,7 @@ public class Design : MonoBehaviour {
 		Vector3 position = getInteractionPositionInLevelOfNearestEmptySpace(null);
 		Quaternion rotation = Quaternion.identity;
 
-		draggedInventory = Instantiate(inventory.gameObject, position, rotation, parent.transform) as GameObject;
+		draggedInventory = Instantiate(inventory.gameObject, position, rotation, inventoriesParent.transform) as GameObject;
 		draggedItem = null;
 	}
 
@@ -129,13 +130,9 @@ public class Design : MonoBehaviour {
 		Vector3 position = getInteractionPositionInLevelOnScreenOfNearestInventory();
 
 		draggedInventory = null;
-		draggedItem = Instantiate(icon, transform.parent.parent.parent) as GameObject;
-
-		RawImage iconInstanceRawImage = draggedItem.GetComponent<RawImage>();
-		iconInstanceRawImage.texture = item.image;
+		draggedItem = Instantiate(item.gameObject, itemsParent.transform) as GameObject;
 
 		RectTransform iconInstanceRectTransform = draggedItem.GetComponent<RectTransform>();
-		iconInstanceRectTransform.pivot = new Vector2(0.5f, 0.5f);
 		iconInstanceRectTransform.position = position;
 	}
 
@@ -166,7 +163,7 @@ public class Design : MonoBehaviour {
 				Destroy(draggedItem);
 			}
 			else {
-				inventory.inventory.Add(draggedItem);
+				inventory.inventory.Add(draggedItem.GetComponent<Item>());
 
 				draggedItem.transform.SetParent(null);
 			}

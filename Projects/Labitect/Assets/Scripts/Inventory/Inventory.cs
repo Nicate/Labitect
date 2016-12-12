@@ -7,9 +7,14 @@ public class Inventory : MonoBehaviour {
 
 	public Texture image;
 
+	public float seat;
+	public float bed;
+	public float toilet;
+	public float storage;
+
 	public int size;
 
-	public List<GameObject> inventory;
+	public List<Item> inventory;
 
 
 	public void Start() {

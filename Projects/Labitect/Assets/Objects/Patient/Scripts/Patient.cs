@@ -40,7 +40,7 @@ public class Patient : MonoBehaviour {
 	}
 
 	public void Start() {
-		calm = Random.Range(0.0f, 0.1f);
+		calm = Random.Range(0.9f, 1.0f);
 		fear = Random.Range(0.0f, 1.0f);
 		hunger = Random.Range(0.0f, 0.5f);
 		health = Random.Range(0.8f, 1.0f);
@@ -69,14 +69,10 @@ public class Patient : MonoBehaviour {
 			hunger = Mathf.Clamp01(hunger);
 			health = Mathf.Clamp01(health);
 
-			if(hunger > 0.5 && hasSpace()) {
-				Item food;
-				Inventory inventory;
-				if(getBestFood(out inventory, out food)) {
-					moveToGet(inventory, food);
-				}
-			}
+			// First the destinations.
+			moveToFood();
 
+			// Then the gradients.
 			moveToLight();
 		}
 	}
@@ -100,12 +96,18 @@ public class Patient : MonoBehaviour {
 
 
 	private void moveToFood() {
-
+		if(hunger > 0.25 && hasSpace()) {
+			Item food;
+			Inventory inventory;
+			if(getBestFood(out inventory, out food)) {
+				moveToGet(inventory, food);
+			}
+		}
 	}
 
 
 	private void moveToLight() {
-		if(fear < 0.75) {
+		if(fear < calm) {
 			// Don't care.
 			return;
 		}

@@ -2,14 +2,19 @@
 using UnityEngine;
 
 public class Inventory : MonoBehaviour {
-	public List<GameObject> inventory;
+	public string inventoryName;
+	public string logName;
 
-	public int maximumSize;
+	public Texture image;
+
+	public int size;
+
+	public List<GameObject> inventory;
 
 
 	public void Start() {
-		if(inventory.Count > maximumSize) {
-			inventory.RemoveRange(maximumSize, inventory.Count - maximumSize);
+		if(inventory.Count > size) {
+			inventory.RemoveRange(size, inventory.Count - size);
 		}
 	}
 }

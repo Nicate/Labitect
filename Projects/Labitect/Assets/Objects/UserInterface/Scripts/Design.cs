@@ -6,7 +6,8 @@ public class Design : MonoBehaviour {
 
 	public GameObject icon;
 
-	public int space;
+	public float space;
+	public float step;
 
 
 	public void Start() {
@@ -22,7 +23,15 @@ public class Design : MonoBehaviour {
 			Item item = design.GetComponent<Item>();
 			
 			if(inventory != null) {
-				Debug.Log("Not implemented yet.");
+				GameObject iconInstance = Instantiate(icon, transform) as GameObject;
+
+				RawImage iconInstanceRawImage = iconInstance.GetComponent<RawImage>();
+				iconInstanceRawImage.texture = inventory.image;
+
+				RectTransform iconInstanceRectTransform = iconInstance.GetComponent<RectTransform>();
+				iconInstanceRectTransform.localPosition = new Vector3(x, 0.0f, 0.0f);
+
+				x += inventory.image.width;
 			}
 			else if(item != null) {
 				GameObject iconInstance = Instantiate(icon, transform) as GameObject;
@@ -39,5 +48,26 @@ public class Design : MonoBehaviour {
 
 		RectTransform rectTransform = GetComponent<RectTransform>();
 		rectTransform.sizeDelta = new Vector2(x, rectTransform.sizeDelta.y);
+	}
+
+
+	public void left() {
+		RectTransform rectTransform = GetComponent<RectTransform>();
+
+		float x = rectTransform.position.x - step;
+
+		if(x >= 0.0f) {
+			rectTransform.position = new Vector3(x, 0.0f, 0.0f);
+		}
+	}
+
+	public void right() {
+		RectTransform rectTransform = GetComponent<RectTransform>();
+
+		float x = rectTransform.position.x + step;
+
+		if(x + rectTransform.sizeDelta.x <= GetComponentInParent<RectTransform>().sizeDelta.x) {
+			rectTransform.position = new Vector3(x, 0.0f, 0.0f);
+		}
 	}
 }

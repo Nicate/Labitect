@@ -49,6 +49,7 @@
      <Compile Include="Assets\Objects\Patient\Scripts\Appearance.cs" />
      <Compile Include="Assets\Objects\Patient\Scripts\Identity.cs" />
      <Compile Include="Assets\Objects\Patient\Scripts\Patient.cs" />
+     <Compile Include="Assets\Objects\UserInterface\Scripts\Design.cs" />
      <Compile Include="Assets\Objects\UserInterface\Scripts\Log.cs" />
      <Compile Include="Assets\Objects\UserInterface\Scripts\UserInterface.cs" />
      <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />

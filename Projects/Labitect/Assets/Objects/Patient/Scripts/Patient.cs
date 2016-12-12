@@ -62,6 +62,8 @@ public class Patient : MonoBehaviour {
 
 			hunger += 0.001f;
 
+			fear -= 0.002f * (1.0f - getLight(transform.position));
+
 			calm = Mathf.Clamp01(calm);
 			fear = Mathf.Clamp01(fear);
 			hunger = Mathf.Clamp01(hunger);
@@ -97,7 +99,17 @@ public class Patient : MonoBehaviour {
 	}
 
 
+	private void moveToFood() {
+
+	}
+
+
 	private void moveToLight() {
+		if(fear < 0.75) {
+			// Don't care.
+			return;
+		}
+
 		float desiredLight = 2.0f - Mathf.Pow(2.0f, fear);
 
 		float bestSample = float.MaxValue;

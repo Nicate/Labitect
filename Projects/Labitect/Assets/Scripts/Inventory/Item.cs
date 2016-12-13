@@ -10,4 +10,5 @@ public class Item : MonoBehaviour {
 	public float smell;
 	public float weapon;
 	public float toy;
+	public float medicin;
 }

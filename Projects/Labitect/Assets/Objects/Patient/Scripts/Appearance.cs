@@ -7,6 +7,9 @@ public class Appearance : MonoBehaviour {
 	public GameObject[] bodiesWithoutPockets;
 	public GameObject[] bodiesWithPockets;
 
+	private GameObject headInstance;
+	private GameObject bodyInstance;
+
 
 	public void Start() {
 		Patient patient = GetComponent<Patient>();
@@ -39,8 +42,8 @@ public class Appearance : MonoBehaviour {
 			patient.numberOfPockets = 3;
 		}
 
-		GameObject headInstance = Instantiate(head, transform, false) as GameObject;
-		GameObject bodyInstance = Instantiate(body, transform, false) as GameObject;
+		headInstance = Instantiate(head, transform, false) as GameObject;
+		bodyInstance = Instantiate(body, transform, false) as GameObject;
 
 		// Beef up the patient.
 		float beef = Mathf.Pow(1.5f, patient.strength);
@@ -49,5 +52,14 @@ public class Appearance : MonoBehaviour {
 		bodyInstance.transform.localScale = Vector3.Scale(bodyInstance.transform.localScale, new Vector3(beef, 1.0f, beef));
 		
 		navMeshAgent.radius = navMeshAgent.radius * beef;
+	}
+
+
+	public void playDead() {
+		headInstance.transform.localPosition = new Vector3(0.0f, 0.0f, 0.6f);
+		headInstance.transform.localRotation = Quaternion.AngleAxis(90.0f, Vector3.right);
+
+		bodyInstance.transform.localPosition = new Vector3(0.0f, 0.0f, -0.8f);
+		bodyInstance.transform.localRotation = Quaternion.AngleAxis(90.0f, Vector3.right);
 	}
 }

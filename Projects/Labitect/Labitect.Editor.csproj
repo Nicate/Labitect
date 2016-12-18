@@ -125,6 +125,10 @@
   <ItemGroup>
     <Compile Include="Assets\Editor\RenameTiles\RenameTiles.cs" />
     <Compile Include="Assets\Editor\RenameWalls\RenameWalls.cs" />
+    <Compile Include="Assets\Editor\SortTiles\SortTiles.cs" />
+    <Compile Include="Assets\Editor\SortTiles\TileComparer.cs" />
+    <Compile Include="Assets\Editor\SortWalls\SortWalls.cs" />
+    <Compile Include="Assets\Editor\SortWalls\WallComparer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

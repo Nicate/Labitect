@@ -1,9 +1,9 @@
-﻿using UnityEngine;
-using UnityEditor;
+﻿using UnityEditor;
+using UnityEngine;
 
 public class RenameWalls : Editor {
 	[MenuItem("/Labitect/Rename walls")]
-	public static void renameTiles() {
+	public static void renameWalls() {
 		GameObject walls = GameObject.Find("Walls");
 
 		if(walls != null) {

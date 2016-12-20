@@ -65,6 +65,8 @@ public class Patient : MonoBehaviour {
 		navMeshAgent.speed = navMeshAgent.speed * spry;
 		navMeshAgent.angularSpeed = navMeshAgent.angularSpeed * spry;
 
+		move(GameObject.FindObjectOfType<Lab>().generateRandomPosition(navMeshAgent.radius));
+
 		StartCoroutine(behave());
 	}
 

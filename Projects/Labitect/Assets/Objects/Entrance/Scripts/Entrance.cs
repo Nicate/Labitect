@@ -1,25 +1,58 @@
 ﻿using UnityEngine;
 
 public class Entrance : MonoBehaviour {
+	/// <summary>
+	/// The prefab that is cloned to spawn the patients.
+	/// </summary>
 	public GameObject patient;
 
-	public int minimumNumberOfPatients;
-	public int maximumNumberOfPatients;
+	/// <summary>
+	/// The range of the number of patients to spawn.
+	/// </summary>
+	public Range numberOfPatients;
 
-	public Rect entranceSize;
-	public Rect levelSize;
+	/// <summary>
+	/// The size of the entrance.
+	/// </summary>
+	public Size size;
 
 
+	/// <summary>
+	/// Spawns a number of patients within the entrance.
+	/// </summary>
 	public void spawnPatients() {
-		int numberofPatients = Random.Range(minimumNumberOfPatients, maximumNumberOfPatients + 1);
+		int numberofPatients = Random.Range(numberOfPatients.minimum, numberOfPatients.maximum + 1);
 
 		for(int count = 0; count < numberofPatients; count++) {
-			Vector3 position = transform.position + new Vector3(Random.Range(entranceSize.xMin, entranceSize.xMax), 0.0f, Random.Range(entranceSize.yMin, entranceSize.yMax));
-			Quaternion rotation = Quaternion.AngleAxis(Random.Range(-180.0f, 180.0f), Vector3.up);
+			GameObject patientInstance = Instantiate(patient, transform.parent) as GameObject;
 
-			GameObject patientInstance = Instantiate(patient, position, rotation, transform.parent) as GameObject;
-			
-			patientInstance.GetComponent<Patient>().move(new Vector3(Random.Range(levelSize.xMin, levelSize.xMax), 0.0f, Random.Range(levelSize.yMin, levelSize.yMax)));
+			NavMeshAgent navMeshAgent = patientInstance.GetComponent<NavMeshAgent>();
+
+			patientInstance.transform.position = generateRandomPosition(navMeshAgent.radius);
+			patientInstance.transform.rotation = generateRandomRotation();
 		}
+	}
+
+
+	/// <summary>
+	/// Generates a random position inside the entrance.
+	/// </summary>
+	/// <param name="radius">The radius of the object to spawn on the position. Its bounds will be taken into account.</param>
+	/// <returns>A random position inside the entrance taking into account the given radius.</returns>
+	public Vector3 generateRandomPosition(float radius) {
+		float x = Random.Range(size.minimumX + radius, size.maximumX - radius);
+		float z = Random.Range(size.minimumZ + radius, size.maximumZ - radius);
+
+		return transform.position + new Vector3(x, 0.0f, z);
+	}
+
+	/// <summary>
+	/// Generates a random rotation inside the entrance.
+	/// </summary>
+	/// <returns>A random rotation inside the entrance.</returns>
+	public Quaternion generateRandomRotation() {
+		float angle = Random.Range(-180.0f, 180.0f);
+
+		return Quaternion.AngleAxis(angle, Vector3.up);
 	}
 }

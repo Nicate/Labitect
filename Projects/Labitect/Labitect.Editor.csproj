@@ -123,6 +123,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Editor\DebugProperty\DebugPropertyDrawer.cs" />
     <Compile Include="Assets\Editor\RenameTiles\RenameTiles.cs" />
     <Compile Include="Assets\Editor\RenameWalls\RenameWalls.cs" />
     <Compile Include="Assets\Editor\SortTiles\SortTiles.cs" />

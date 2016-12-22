@@ -84,6 +84,7 @@
     <Compile Include="Assets\Objects\UserInterface\Scripts\Design.cs" />
     <Compile Include="Assets\Objects\UserInterface\Scripts\Log.cs" />
     <Compile Include="Assets\Objects\UserInterface\Scripts\UserInterface.cs" />
+    <Compile Include="Assets\Scripts\DebugProperty\DebugPropertyAttribute.cs" />
     <Compile Include="Assets\Scripts\Range\Range.cs" />
     <Compile Include="Assets\Scripts\Range\Size.cs" />
   </ItemGroup>

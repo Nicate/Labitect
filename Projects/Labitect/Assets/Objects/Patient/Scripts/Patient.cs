@@ -136,7 +136,7 @@ public class Patient : MonoBehaviour {
 		if(distance < 1.0f) {
 			if(desireToPoop) {
 				if(destination.hasSpace()) {
-					destination.inventory.Add(Instantiate(poop));
+					destination.addItem(Instantiate(poop));
 
 					hunger += 0.25f;
 
@@ -151,7 +151,7 @@ public class Patient : MonoBehaviour {
 			else if(desireToDrop) {
 				if(destination.hasSpace()) {
 					inventory.Remove(desire);
-					destination.inventory.Add(desire);
+					destination.addItem(desire);
 					
 					// This can happen apparently, this is not a fix but no time to fix it!
 					if(desire != null) {
@@ -166,8 +166,8 @@ public class Patient : MonoBehaviour {
 			}
 			else {
 				if(hasSpace()) {
-					if(destination.inventory.Contains(desire)) {
-						destination.inventory.Remove(desire);
+					if(destination.hasItem(desire)) {
+						destination.removeItem(desire);
 						inventory.Add(desire);
 
 						log(getName() + " took " + desire.logName + " from " + destination.logName + ".");
@@ -199,11 +199,11 @@ public class Patient : MonoBehaviour {
 			// Hackity.
 			Inventory carcassInstance = Instantiate(carcass, transform.position, Quaternion.identity, GameObject.Find("Experiment").transform) as Inventory;
 
-			carcassInstance.inventory.Add(Instantiate(flesh));
-			carcassInstance.inventory.Add(Instantiate(flesh));
+			carcassInstance.addItem(Instantiate(flesh));
+			carcassInstance.addItem(Instantiate(flesh));
 
 			if(hunger < 0.1f) {
-				carcassInstance.inventory.Add(Instantiate(poop));
+				carcassInstance.addItem(Instantiate(poop));
 
 				log(getName() + " defecated post-death.");
 			}
@@ -513,7 +513,7 @@ public class Patient : MonoBehaviour {
 		Inventory bestInventory = null;
 
 		foreach(Inventory currentInventory in inventories) {
-			foreach(Item item in currentInventory.inventory) {
+			foreach(Item item in currentInventory.initialItems) {
 				// Can occur for some reason, no time to fix it!
 				if(item == null) {
 					continue;
@@ -539,7 +539,7 @@ public class Patient : MonoBehaviour {
 		Inventory bestInventory = null;
 
 		foreach(Inventory currentInventory in inventories) {
-			foreach(Item item in currentInventory.inventory) {
+			foreach(Item item in currentInventory.initialItems) {
 				if(item.medicin > bestMedicinValue) {
 					bestMedicinValue = item.medicin;
 					bestMedicin = item;

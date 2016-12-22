@@ -163,7 +163,7 @@ public class Design : MonoBehaviour {
 				Destroy(draggedItem);
 			}
 			else {
-				inventory.inventory.Add(draggedItem.GetComponent<Item>());
+				inventory.addItem(draggedItem.GetComponent<Item>());
 
 				draggedItem.transform.SetParent(null);
 			}
